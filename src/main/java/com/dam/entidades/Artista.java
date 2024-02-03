@@ -142,7 +142,6 @@ public class Artista {
         return "Artista --> " +
                 "idArtista: " + idArtista +
                 " | usuario: " + usuario +
-                " | password: " + password +
                 " | nombreCompleto: " + nombreCompleto +
                 " | email: " + email +
                 " | fechaNacimiento: " + fechaNacimiento +
