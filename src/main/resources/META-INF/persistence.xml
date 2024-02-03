@@ -3,7 +3,26 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-    <persistence-unit name="default">
+    <persistence-unit name="upArte">
+
+        <class>com.dam.entidades.Obra</class>
+        <class>com.dam.entidades.Comprador</class>
+        <class>com.dam.entidades.Compra</class>
+        <class>com.dam.entidades.Administrador</class>
+        <class>com.dam.entidades.Artista</class>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>
+
+            <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.connection.username" value="MARKETARTE"/>
+            <property name="hibernate.connection.password" value="1234"/>
+
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
 
     </persistence-unit>
 </persistence>
