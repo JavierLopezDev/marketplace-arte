@@ -22,9 +22,13 @@ public class Obra {
     private String descripcion;
     private byte[] imagen;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idArtista")
     private Artista artista;
+
+    @ManyToOne
+    @JoinColumn(name = "idComprador")
+    private Comprador comprador;
 
 
     public Obra() {}
@@ -38,7 +42,7 @@ public class Obra {
         this.imagen = imagen;
     }
 
-    public Obra(int idObra, String nombre, double precio, boolean disponibleVenta, String descripcion, byte[] imagen, Artista artista) {
+    public Obra(int idObra, String nombre, double precio, boolean disponibleVenta, String descripcion, byte[] imagen, Artista artista, Comprador comprador) {
         this.idObra = idObra;
         this.nombre = nombre;
         this.precio = precio;
@@ -46,6 +50,7 @@ public class Obra {
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.artista = artista;
+        this.comprador = comprador;
     }
 
     public int getIdObra() {
@@ -104,6 +109,14 @@ public class Obra {
         this.artista = artista;
     }
 
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
+    }
+
     @Override
     public String toString() {
         return "Obra --> " +
@@ -113,6 +126,7 @@ public class Obra {
                 " | disponibleVenta: " + disponibleVenta +
                 " | descripcion: '" + descripcion +
                 " | imagen: " + Arrays.toString(imagen) +
-                " | artista: " + artista.toString();
+                " | artista: " + artista.toString() +
+                " | comprador: " + comprador.toString();
     }
 }

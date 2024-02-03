@@ -81,7 +81,7 @@ public class Compra {
                 "idCompra: " + idCompra +
                 " | fecha: '" + fecha +
                 " | importe: " + importe +
-                " | idComprador: " + idComprador +
-                " | idObra: " + idObra;
+                " | idComprador: " + idComprador.getIdComprador() +
+                " | idObra: " + idObra.getIdObra();
     }
 }

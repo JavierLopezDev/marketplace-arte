@@ -21,9 +21,9 @@ public class Comprador {
     private String email;
     private double saldo;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "idObra")
-    private ArrayList<Obra> compras = new ArrayList<Obra>();
+    private ArrayList<Obra> inventario = new ArrayList<Obra>();
 
     public Comprador() {}
 
@@ -36,14 +36,14 @@ public class Comprador {
         this.saldo = saldo;
     }
 
-    public Comprador(int idComprador, String usuario, String password, String nombreCompleto, String email, double saldo, ArrayList<Obra> compras) {
+    public Comprador(int idComprador, String usuario, String password, String nombreCompleto, String email, double saldo, ArrayList<Obra> inventario) {
         this.idComprador = idComprador;
         this.usuario = usuario;
         this.password = password;
         this.nombreCompleto = nombreCompleto;
         this.email = email;
         this.saldo = saldo;
-        this.compras = compras;
+        this.inventario = inventario;
     }
 
     public int getIdComprador() {
@@ -94,11 +94,22 @@ public class Comprador {
         this.saldo = saldo;
     }
 
-    public ArrayList<Obra> getCompras() {
-        return compras;
+    public ArrayList<Obra> getInventario() {
+        return inventario;
     }
 
-    public void setCompras(ArrayList<Obra> compras) {
-        this.compras = compras;
+    public void setInventario(ArrayList<Obra> compras) {
+        this.inventario = compras;
+    }
+
+    @Override
+    public String toString() {
+        return "Comprador --> " +
+                "idComprador: " + idComprador +
+                " | usuario: " + usuario +
+                " | nombreCompleto: " + nombreCompleto +
+                " | email: " + email +
+                " | saldo: " + saldo +
+                " | {inventario --> " + inventario.toString() + "}";
     }
 }

@@ -26,8 +26,7 @@ public class Artista {
     private String biografia;
     private String telefono;
 
-    @OneToMany
-    @JoinColumn(name = "idObra")
+    @OneToMany(mappedBy = "artista", cascade = CascadeType.ALL)
     private ArrayList<Obra> obras = new ArrayList<Obra>();
 
     public Artista() {}
