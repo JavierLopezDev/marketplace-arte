@@ -66,66 +66,6 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     }
 
     @Override
-    public boolean asignarPrecioObra(int idObra, double precio) {
-        em = emf.createEntityManager();
-        Obra obra = em.find(Obra.class, idObra);
-        if (obra == null) {
-            return false;
-        } else {
-            try {
-                em.getTransaction().begin();
-                obra.setPrecio(precio);
-                em.merge(obra);
-                em.getTransaction().commit();
-                return true;
-            } catch (Exception e) {
-                em.getTransaction().rollback();
-                return false;
-            }
-        }
-    }
-
-    @Override
-    public boolean disponibilidadObra(int idObra, boolean disponibleVenta) {
-        em = emf.createEntityManager();
-        Obra obra = em.find(Obra.class, idObra);
-        if (obra == null) {
-            return false;
-        } else {
-            try {
-                em.getTransaction().begin();
-                obra.setDisponibleVenta(disponibleVenta);
-                em.merge(obra);
-                em.getTransaction().commit();
-                return true;
-            } catch (Exception e) {
-                em.getTransaction().rollback();
-                return false;
-            }
-        }
-    }
-
-    @Override
-    public boolean addImagenObra(int idObra, byte[] imagen) {
-        em = emf.createEntityManager();
-        Obra obra = em.find(Obra.class, idObra);
-        if (obra == null) {
-            return false;
-        } else {
-            try {
-                em.getTransaction().begin();
-                obra.setImagen(imagen);
-                em.merge(obra);
-                em.getTransaction().commit();
-                return true;
-            } catch (Exception e) {
-                em.getTransaction().rollback();
-                return false;
-            }
-        }
-    }
-
-    @Override
     public boolean addBiografia(int idArtista, String biografia) {
         em = emf.createEntityManager();
         Artista artista = em.find(Artista.class, idArtista);
