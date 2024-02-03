@@ -136,7 +136,9 @@ public class ObraDAOImpl implements ObraDAO {
             try {
                 em.getTransaction().begin();
                 obra.setComprador(comprador);
+                comprador.getInventario().add(obra);
                 em.merge(obra);
+                em.merge(comprador);
                 em.getTransaction().commit();
                 return true;
             } catch (Exception e) {
@@ -198,7 +200,9 @@ public class ObraDAOImpl implements ObraDAO {
             try {
                 em.getTransaction().begin();
                 obra.setComprador(comprador);
+                comprador.getInventario().remove(obra);
                 em.merge(obra);
+                em.merge(comprador);
                 em.getTransaction().commit();
                 return true;
             } catch (Exception e) {
