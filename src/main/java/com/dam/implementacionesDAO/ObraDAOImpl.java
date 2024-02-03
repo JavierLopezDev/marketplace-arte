@@ -18,7 +18,7 @@ public class ObraDAOImpl implements ObraDAO {
         emf = Persistence.createEntityManagerFactory(up);
     }
     @Override
-    public boolean insertar(Obra obra) {
+    public boolean insertarObra(Obra obra) {
         em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -32,7 +32,7 @@ public class ObraDAOImpl implements ObraDAO {
     }
 
     @Override
-    public boolean editar(Obra obra) {
+    public boolean editarObra(Obra obra) {
         em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -46,7 +46,7 @@ public class ObraDAOImpl implements ObraDAO {
     }
 
     @Override
-    public boolean borrar(Obra obra) {
+    public boolean borrarObra(Obra obra) {
         em = emf.createEntityManager();
         try {
             em.getTransaction().begin();

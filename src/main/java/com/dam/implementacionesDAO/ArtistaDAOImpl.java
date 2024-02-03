@@ -18,7 +18,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     }
 
     @Override
-    public boolean insertar(Artista artista) {
+    public boolean insertarArtista(Artista artista) {
         em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -32,7 +32,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     }
 
     @Override
-    public boolean editar(Artista artista) {
+    public boolean editarArtista(Artista artista) {
         em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -46,7 +46,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     }
 
     @Override
-    public boolean borrar(Artista artista) {
+    public boolean borrarArtista(Artista artista) {
         em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
