@@ -159,7 +159,9 @@ public class ObraDAOImpl implements ObraDAO {
             try {
                 em.getTransaction().begin();
                 obra.setArtista(artista);
+                artista.getObras().add(obra);
                 em.merge(obra);
+                em.merge(artista);
                 em.getTransaction().commit();
                 return true;
             } catch (Exception e) {
