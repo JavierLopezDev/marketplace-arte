@@ -13,8 +13,8 @@ import java.util.ArrayList;
 @Scope("prototype")
 public class Artista {
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idArtista")
-    @SequenceGenerator(name = "idArtista", sequenceName = "SEQ_ARTISTA", allocationSize = 1)
+    /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idArtista")
+    @SequenceGenerator(name = "idArtista", sequenceName = "SEQ_ARTISTA", allocationSize = 1)*/
     @Id
     private int idArtista;
     private String usuario;
@@ -30,6 +30,17 @@ public class Artista {
     private ArrayList<Obra> obras = new ArrayList<Obra>();
 
     public Artista() {}
+
+    public Artista(String usuario, String password, String nombreCompleto, String email, String fechaNacimiento, String nacionalidad, String biografia, String telefono) {
+        this.usuario = usuario;
+        this.password = password;
+        this.nombreCompleto = nombreCompleto;
+        this.email = email;
+        this.fechaNacimiento = fechaNacimiento;
+        this.nacionalidad = nacionalidad;
+        this.biografia = biografia;
+        this.telefono = telefono;
+    }
 
     public Artista(int idArtista, String usuario, String password, String nombreCompleto, String email, String fechaNacimiento, String nacionalidad, String biografia, String telefono) {
         this.idArtista = idArtista;

@@ -5,7 +5,9 @@ import com.dam.entidades.Administrador;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class AdministradorDAOImpl implements AdministradorDAO {
 
     EntityManagerFactory emf;

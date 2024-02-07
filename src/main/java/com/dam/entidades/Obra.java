@@ -22,6 +22,7 @@ public class Obra {
     private String descripcion;
     private byte[] imagen;
 
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idArtista")
     private Artista artista;
@@ -33,6 +34,14 @@ public class Obra {
 
     public Obra() {}
 
+    public Obra(String nombre, double precio, boolean disponibleVenta, String descripcion, byte[] imagen) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.disponibleVenta = disponibleVenta;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+    }
+
     public Obra(int idObra, String nombre, double precio, boolean disponibleVenta, String descripcion, byte[] imagen) {
         this.idObra = idObra;
         this.nombre = nombre;
@@ -40,6 +49,16 @@ public class Obra {
         this.disponibleVenta = disponibleVenta;
         this.descripcion = descripcion;
         this.imagen = imagen;
+    }
+
+    public Obra( String nombre, double precio, boolean disponibleVenta, String descripcion, byte[] imagen, Artista artista, Comprador comprador) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.disponibleVenta = disponibleVenta;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.artista = artista;
+        this.comprador = comprador;
     }
 
     public Obra(int idObra, String nombre, double precio, boolean disponibleVenta, String descripcion, byte[] imagen, Artista artista, Comprador comprador) {
@@ -125,8 +144,8 @@ public class Obra {
                 " | Precio: "+ precio +
                 " | disponibleVenta: " + disponibleVenta +
                 " | descripcion: '" + descripcion +
-                " | imagen: " + Arrays.toString(imagen) +
-                " | artista: " + artista.toString() +
-                " | comprador: " + comprador.toString();
+                " | imagen: " + Arrays.toString(imagen) //+
+                /*" | artista: " + artista.toString() +
+                " | comprador: " + comprador.toString()*/;
     }
 }

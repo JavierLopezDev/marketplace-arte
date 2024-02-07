@@ -6,7 +6,9 @@ import com.dam.entidades.Obra;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CompradorDAOImpl implements CompradorDAO {
 
     EntityManagerFactory emf;

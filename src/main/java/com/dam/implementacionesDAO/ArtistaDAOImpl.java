@@ -6,7 +6,9 @@ import com.dam.entidades.Obra;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ArtistaDAOImpl implements ArtistaDAO {
 
     EntityManagerFactory emf;
@@ -22,11 +24,10 @@ public class ArtistaDAOImpl implements ArtistaDAO {
         em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            em.persist(artista);
+            em.merge(artista);
             em.getTransaction().commit();
             return true;
         } catch (Exception e) {
-            em.getTransaction().rollback();
             return false;
         }
     }

@@ -7,7 +7,9 @@ import com.dam.entidades.Obra;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ObraDAOImpl implements ObraDAO {
 
     EntityManagerFactory emf;
@@ -153,6 +155,29 @@ public class ObraDAOImpl implements ObraDAO {
         em = emf.createEntityManager();
         Obra obra = obtenerObra(idObra);
         Artista artista = em.find(Artista.class, idArtista);
+        if (obra == null && artista == null) {
+            return false;
+        } else {
+            try {
+                em.getTransaction().begin();
+                obra.setArtista(artista);
+                artista.getObras().add(obra);
+                em.merge(obra);
+                em.merge(artista);
+                em.getTransaction().commit();
+                return true;
+            } catch (Exception e) {
+                em.getTransaction().rollback();
+                return false;
+            }
+        }
+    }
+
+    @Override
+    public boolean addArtista(int idObra, String nomArtista) {
+        em = emf.createEntityManager();
+        Obra obra = obtenerObra(idObra);
+        Artista artista = em.find(Artista.class, nomArtista);
         if (obra == null && artista == null) {
             return false;
         } else {
