@@ -19,20 +19,20 @@ public class Compra {
 
     @ManyToOne
     @JoinColumn(name = "idComprador")
-    private Comprador idComprador;
+    private Comprador compradorId;
 
     @ManyToOne
     @JoinColumn(name = "idObra")
-    private Obra idObra;
+    private Obra obraId;
 
     public Compra() {}
 
-    public Compra(int idCompra, String fecha, double importe, Comprador idComprador, Obra idObra) {
+    public Compra(int idCompra, String fecha, double importe, Comprador compradorId, Obra obraId) {
         this.idCompra = idCompra;
         this.fecha = fecha;
         this.importe = importe;
-        this.idComprador = idComprador;
-        this.idObra = idObra;
+        this.compradorId = compradorId;
+        this.obraId = obraId;
     }
 
     public int getIdCompra() {
@@ -59,20 +59,20 @@ public class Compra {
         this.importe = importe;
     }
 
-    public Comprador getIdComprador() {
-        return idComprador;
+    public Comprador getCompradorId() {
+        return compradorId;
     }
 
-    public void setIdComprador(Comprador idComprador) {
-        this.idComprador = idComprador;
+    public void setCompradorId(Comprador idComprador) {
+        this.compradorId = idComprador;
     }
 
-    public Obra getIdObra() {
-        return idObra;
+    public Obra getObraId() {
+        return obraId;
     }
 
-    public void setIdObra(Obra idObra) {
-        this.idObra = idObra;
+    public void setObraId(Obra idObra) {
+        this.obraId = idObra;
     }
 
     @Override
@@ -81,7 +81,7 @@ public class Compra {
                 "idCompra: " + idCompra +
                 " | fecha: '" + fecha +
                 " | importe: " + importe +
-                " | idComprador: " + idComprador.getIdComprador() +
-                " | idObra: " + idObra.getIdObra();
+                " | idComprador: " + compradorId.getIdComprador() +
+                " | idObra: " + obraId.getIdObra();
     }
 }
