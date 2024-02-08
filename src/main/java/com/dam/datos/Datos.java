@@ -77,11 +77,6 @@ public class Datos {
         artista.setFechaNacimiento("08/05/2003");
         artistaDAO.insertarArtista(artista);
 
-        obraDAO.addArtista(obra.getIdObra(), artista.getIdArtista());
-        obraDAO.addArtista(obra2.getIdObra(), artista.getIdArtista());
-        obraDAO.addArtista(obra3.getIdObra(), artista.getIdArtista());
-
-
         // COMPRADOR
 
         CompradorDAO compradorDAO = new CompradorDAOImpl();
@@ -93,17 +88,23 @@ public class Datos {
         comprador.setSaldo(10);
         compradorDAO.insertarComprador(comprador);
 
-        obraDAO.addComprador(obra.getIdObra(), 1);
-
         // COMPRA
 
         CompraDAO compraDAO = new CompraDAOImpl();
         Compra compra = new Compra();
         compra.setFecha("07/02/2024");
         compra.setImporte(5);
-        compra.setCompradorId(compradorDAO.obtenerComprador(1));
-        compra.setObraId(obraDAO.obtenerObra(1));
+        compra.setCompradorId(compradorDAO.obtenerComprador(comprador.getIdComprador()));
+        compra.setObraId(obraDAO.obtenerObra(obra.getIdObra()));
         compraDAO.insertarCompra(compra);
+
+        // ASOCIAR OBRAS CON ARTISTAS Y COMPRADORES
+
+        obraDAO.addArtista(obra.getIdObra(), artista.getIdArtista());
+        obraDAO.addArtista(obra2.getIdObra(), artista.getIdArtista());
+        obraDAO.addArtista(obra3.getIdObra(), artista.getIdArtista());
+
+        obraDAO.addComprador(obra.getIdObra(), comprador.getIdComprador());
 
 
     }
