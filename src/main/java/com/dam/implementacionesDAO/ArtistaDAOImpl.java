@@ -2,7 +2,6 @@ package com.dam.implementacionesDAO;
 
 import com.dam.DAOs.ArtistaDAO;
 import com.dam.entidades.Artista;
-import com.dam.entidades.Obra;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -29,6 +28,8 @@ public class ArtistaDAOImpl implements ArtistaDAO {
             return true;
         } catch (Exception e) {
             return false;
+        } finally {
+            em.close();
         }
     }
 
