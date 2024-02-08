@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @Entity
@@ -21,9 +22,8 @@ public class Comprador {
     private String email;
     private double saldo;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idObra")
-    private ArrayList<Obra> inventario = new ArrayList<Obra>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "comprador")
+    private List<Obra> inventario = new ArrayList<>();
 
     public Comprador() {}
 
@@ -36,7 +36,7 @@ public class Comprador {
         this.saldo = saldo;
     }
 
-    public Comprador(int idComprador, String usuario, String password, String nombreCompleto, String email, double saldo, ArrayList<Obra> inventario) {
+    public Comprador(int idComprador, String usuario, String password, String nombreCompleto, String email, double saldo, List<Obra> inventario) {
         this.idComprador = idComprador;
         this.usuario = usuario;
         this.password = password;
@@ -94,11 +94,11 @@ public class Comprador {
         this.saldo = saldo;
     }
 
-    public ArrayList<Obra> getInventario() {
+    public List<Obra> getInventario() {
         return inventario;
     }
 
-    public void setInventario(ArrayList<Obra> compras) {
+    public void setInventario(List<Obra> compras) {
         this.inventario = compras;
     }
 

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @Entity
@@ -13,8 +14,8 @@ import java.util.ArrayList;
 @Scope("prototype")
 public class Artista {
 
-    /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idArtista")
-    @SequenceGenerator(name = "idArtista", sequenceName = "SEQ_ARTISTA", allocationSize = 1)*/
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idArtista")
+    @SequenceGenerator(name = "idArtista", sequenceName = "SEQ_ARTISTA", allocationSize = 1)
     @Id
     private int idArtista;
     private String usuario;
@@ -27,7 +28,7 @@ public class Artista {
     private String telefono;
 
     @OneToMany(mappedBy = "artista", cascade = CascadeType.ALL)
-    private ArrayList<Obra> obras = new ArrayList<Obra>();
+    private List<Obra> obras = new ArrayList<>();
 
     public Artista() {}
 
@@ -54,7 +55,7 @@ public class Artista {
         this.telefono = telefono;
     }
 
-    public Artista(int idArtista, String usuario, String password, String nombreCompleto, String email, String fechaNacimiento, String nacionalidad, String biografia, String telefono, ArrayList<Obra> obras) {
+    public Artista(int idArtista, String usuario, String password, String nombreCompleto, String email, String fechaNacimiento, String nacionalidad, String biografia, String telefono, List<Obra> obras) {
         this.idArtista = idArtista;
         this.usuario = usuario;
         this.password = password;
@@ -139,11 +140,11 @@ public class Artista {
         this.telefono = telefono;
     }
 
-    public ArrayList<Obra> getObras() {
+    public List<Obra> getObras() {
         return obras;
     }
 
-    public void setObras(ArrayList<Obra> obras) {
+    public void setObras(List<Obra> obras) {
         this.obras = obras;
     }
 

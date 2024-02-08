@@ -20,15 +20,16 @@ public class Obra {
     private double precio;
     private boolean disponibleVenta;
     private String descripcion;
+    @Lob
     private byte[] imagen;
 
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idArtista")
+    @JoinColumn(name = "idArtista", nullable = true)
     private Artista artista;
 
     @ManyToOne
-    @JoinColumn(name = "idComprador")
+    @JoinColumn(name = "idComprador", nullable = true)
     private Comprador comprador;
 
 
