@@ -136,11 +136,10 @@ public class ObraDAOImpl implements ObraDAO {
             return false;
         } else {
             try {
-                em.getTransaction().begin();
                 obra.setComprador(comprador);
                 comprador.getInventario().add(obra);
+                em.getTransaction().begin();
                 em.merge(obra);
-                em.merge(comprador);
                 em.getTransaction().commit();
                 return true;
             } catch (Exception e) {
@@ -159,11 +158,11 @@ public class ObraDAOImpl implements ObraDAO {
             return false;
         } else {
             try {
-                em.getTransaction().begin();
                 obra.setArtista(artista);
                 artista.getObras().add(obra);
+
+                em.getTransaction().begin();
                 em.merge(obra);
-                em.merge(artista);
                 em.getTransaction().commit();
                 return true;
             } catch (Exception e) {
