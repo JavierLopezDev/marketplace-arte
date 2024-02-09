@@ -33,7 +33,7 @@
             <label class="col-md-4 control-label" for="passwordinput">Contraseña</label>
             <div class="col-md-4">
                 <form:input id="passwordinput" path="password" placeholder="Introduce la contraseña"
-                            type = "password" class="form-control input-md" required=""/>
+                            type="password" class="form-control input-md" required=""/>
             </div>
         </div>
 

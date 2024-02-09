@@ -14,6 +14,9 @@
 </head>
 
 <style>
+    body {
+        margin-top: 8%;
+    }
     h1 {
         text-align: center;
     }
@@ -60,7 +63,7 @@
     </nav>
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column">
         <h2>Bienvenido al mejor marketplace de NFTs</h2>
-        <img src="nft-marketplace.jpg"  alt="nft-marketplace" >
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThGY6zSrpch-5jaWGYjdCuu6CbQgoc47Wuaw&usqp=CAU"  alt="nft-marketplace" />
     </div>
     <footer style="position: absolute; bottom: 0; width: 100%;">
         <p>© 2023 Marketplace - NFT. Todos los derechos reservados.</p>
