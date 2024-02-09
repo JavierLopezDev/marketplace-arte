@@ -27,7 +27,7 @@ public class ControladorLogIn {
 
     @GetMapping("/loginComprador")
     public String irLoginComprador(Model model) {
-        model.addAttribute("recibirLogin", admin);
+        model.addAttribute("recibirLogin", comprador);
         return "login";
     }
 }

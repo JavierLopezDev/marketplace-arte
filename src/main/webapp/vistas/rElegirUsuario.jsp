@@ -51,7 +51,7 @@
 
     li a {
         display: block;
-        background-color: #333;
+        background-color: #007bff;
         color: white;
         border-radius: 10px;
         text-align: center;
@@ -61,7 +61,7 @@
     }
 
     li a:hover {
-        background-color: #111;
+        background-color: #0056b3;
     }
 </style>
 

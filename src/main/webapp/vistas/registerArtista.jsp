@@ -7,7 +7,7 @@
 </head>
 <style>
     form {
-        margin-top: 0.25rem;
+        margin-top: 0.5rem;
         margin-left: 40%;
     }
 </style>

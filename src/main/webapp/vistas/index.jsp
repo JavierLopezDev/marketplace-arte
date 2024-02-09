@@ -10,63 +10,80 @@
 <head>
     <meta charset="utf-8">
     <title>Marketplace - NFT</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<style>
-    body {
-        margin-top: 8%;
-    }
-    h1 {
-        text-align: center;
-    }
+<head>
+    <title>GESTION DE VIDEOJUEGOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
 
-    h2 {
-        text-align: center;
-    }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
 
-    }
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    li {
-        float: left;
-        margin-right: 1rem;
-    }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    li a {
-        display: block;
-        background-color: #333;
-        color: white;
-        border-radius: 10px;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
+        .form-container button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
 
-    li a:hover {
-        background-color: #111;
-    }
-</style>
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
 
+        .button-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: row;
+        }
+    </style>
+</head>
 <body>
-    <h1>Marketplace - NFT</h1>
-    <nav style="display: flex; justify-content: center; align-items: center">
-        <ul>
-            <li><a href="elegirUser">Login</a></li>
-            <li><a href="rEscogerUsuario">SigIn</a></li>
-        </ul>
-    </nav>
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column">
-        <h2>Bienvenido al mejor marketplace de NFTs</h2>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThGY6zSrpch-5jaWGYjdCuu6CbQgoc47Wuaw&usqp=CAU"  alt="nft-marketplace" />
+<div class="container">
+    <div class="form-container">
+        <h1>BIENVENIDO AL MEJOR MARKETPLACE DE NFTs</h1>
+        <div class="button-container">
+            <form action="elegirUser">
+                <button type="submit">Login</button>
+            </form>
+            <form action="rEscogerUsuario">
+                <button type="submit">SigIn</button>
+            </form>
+        </div>
     </div>
-    <footer style="position: absolute; bottom: 0; width: 100%;">
-        <p>© 2023 Marketplace - NFT. Todos los derechos reservados.</p>
-    </footer>
+</div>
 </body>
 </html>

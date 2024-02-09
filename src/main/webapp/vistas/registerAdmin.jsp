@@ -16,7 +16,7 @@
     <fieldset>
 
         <!-- Form Name -->
-        <legend style="margin-left: 6rem;">Log In</legend>
+        <legend>Registrar Admin</legend>
 
         <!-- Text input-->
         <div class="form-group">
@@ -37,7 +37,7 @@
         </div>
 
         <!-- Button -->
-        <div class="form-group" style="margin-left: 5rem;">
+        <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div class="col-md-4">
                 <button id="singlebutton" name="singlebutton" class="btn btn-success">Inicia sesion</button>
