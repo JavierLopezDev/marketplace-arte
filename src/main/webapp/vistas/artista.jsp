@@ -100,11 +100,13 @@
             <h1 class="artist-name">${artista.getNombreCompleto()}</h1>
         </div>
         <form action="ajustesArtista">
+            <input type="hidden" name="idArtista" value="${artista.getIdArtista()}">
             <button type="submit" class="settings-button">Ajustes</button>
         </form>
     </div>
 
     <form action="insertarObra" class="addObra">
+        <input type="hidden" name="idArtista" value="${artista.getIdArtista()}">
         <button type="submit" class="settings-button" >Añadir Obra</button>
     </form>
 
@@ -112,7 +114,7 @@
         <c:forEach items="${artista.getObras()}" var="obra">
             <div class="obra">
                 <h2 class="artwork-name">${obra.getNombre()}</0></h2>
-                <img class="artwork-image" src="${obra.getImagen()}" alt="Obra 1">
+                <img class="artwork-image" src="${obra.getImagen()}" alt="Imagen Obra">
                 <p class="artwork-description">${obra.getDescripcion()}</p>
                 <p class="artwork-price">Precio: ${obra.getPrecio()}€</p>
 
