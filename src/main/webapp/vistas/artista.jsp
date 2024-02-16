@@ -82,6 +82,13 @@
             border: 2px solid black;
             margin: 20px;
         }
+        .addObra {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -92,8 +99,14 @@
             <img class="profile-logo" src="https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png" alt="Logo del Artista">
             <h1 class="artist-name">${artista.getNombreCompleto()}</h1>
         </div>
-        <button class="settings-button">Ajustes</button>
+        <form action="ajustesArtista">
+            <button type="submit" class="settings-button">Ajustes</button>
+        </form>
     </div>
+
+    <form action="insertarObra" class="addObra">
+        <button type="submit" class="settings-button" >Añadir Obra</button>
+    </form>
 
     <div class="artwork">
         <c:forEach items="${artista.getObras()}" var="obra">
@@ -102,12 +115,7 @@
                 <img class="artwork-image" src="${obra.getImagen()}" alt="Obra 1">
                 <p class="artwork-description">${obra.getDescripcion()}</p>
                 <p class="artwork-price">Precio: ${obra.getPrecio()}€</p>
-                <%--<c:if test="${obra.getDisponible()}">
-                    <p>En venta: Si</p>
-                </c:if>
-                <c:if test="${!obra.getDisponible()}">
-                    <p>En venta: No</p>
-                </c:if>--%>
+
             </div>
         </c:forEach>
     </div>

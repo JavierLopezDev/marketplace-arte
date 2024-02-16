@@ -27,6 +27,7 @@ public class Datos {
         ObraDAO obraDAO = new ObraDAOImpl();
         Obra obra = new Obra();
         obra.setNombre("Best Friend #1");
+        obra.setDescripcion("Best Friend #1 Obra");
         obra.setDisponibleVenta(true);
         obra.setPrecio(5);
         obra.setImagen("https://i.seadn.io/s/raw/files/7dc1d39ce649b374676664643ec009d2.jpg?auto=format&dpr=1&w=256");
@@ -34,6 +35,7 @@ public class Datos {
 
         Obra obra2 = new Obra();
         obra2.setNombre("Best Friend #5");
+        obra2.setDescripcion("Best Friend #5 Obra");
         obra2.setDisponibleVenta(true);
         obra2.setPrecio(5);
         obra2.setImagen("https://i.seadn.io/s/raw/files/b117bdd24f4a8960d4503f901a598ac0.jpg?auto=format&dpr=1&w=256");
@@ -41,6 +43,7 @@ public class Datos {
 
         Obra obra3 = new Obra();
         obra3.setNombre("Best Friend #48");
+        obra3.setDescripcion("Best Friend #48 Obra");
         obra3.setDisponibleVenta(true);
         obra3.setPrecio(5);
         obra3.setImagen("https://i.seadn.io/s/raw/files/f7eabc5bd5f1a1ee283a4fb373c6a57c.jpg?auto=format&dpr=1&w=256");
@@ -85,9 +88,9 @@ public class Datos {
 
         // ASOCIAR OBRAS CON ARTISTAS Y COMPRADORES
 
-        obraDAO.addArtista(obra.getIdObra(), artista.getIdArtista());
-        obraDAO.addArtista(obra2.getIdObra(), artista.getIdArtista());
-        obraDAO.addArtista(obra3.getIdObra(), artista.getIdArtista());
+        obraDAO.addArtista(obra.getIdObra(), artista.getUsuario());
+        obraDAO.addArtista(obra2.getIdObra(), artista.getUsuario());
+        obraDAO.addArtista(obra3.getIdObra(), artista.getUsuario());
 
         obraDAO.addComprador(obra.getIdObra(), comprador.getIdComprador());
 

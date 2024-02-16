@@ -162,7 +162,6 @@ public class ObraDAOImpl implements ObraDAO {
                 artista.getObras().add(obra);
                 em.getTransaction().begin();
                 em.merge(obra);
-                em.merge(artista);
                 em.getTransaction().commit();
                 return true;
             } catch (Exception e) {
@@ -176,7 +175,8 @@ public class ObraDAOImpl implements ObraDAO {
     public boolean addArtista(int idObra, String nomArtista) {
         em = emf.createEntityManager();
         Obra obra = obtenerObra(idObra);
-        Artista artista = em.find(Artista.class, nomArtista);
+        String hql = "SELECT a FROM Artista a WHERE a.usuario = :nomArtista";
+        Artista artista = em.createQuery(hql, Artista.class).setParameter("nomArtista", nomArtista).getSingleResult();
         if (obra == null && artista == null) {
             return false;
         } else {
