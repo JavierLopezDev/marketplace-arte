@@ -16,6 +16,8 @@ public class Comprador {
     @SequenceGenerator(name = "idComprador", sequenceName = "SEQ_COMPRADOR", allocationSize = 1)
     @Id
     private int idComprador;
+
+    @Column(unique = true)
     private String usuario;
     private String password;
     private String nombreCompleto;

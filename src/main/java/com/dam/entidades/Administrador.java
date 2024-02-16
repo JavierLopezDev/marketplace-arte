@@ -14,6 +14,8 @@ public class Administrador {
     @SequenceGenerator(name = "idAdministrador", sequenceName = "SEQ_ADMINISTRADOR", allocationSize = 1)
     @Id
     private int idAdministrador;
+
+    @Column(unique = true)
     private String usuario;
     private String password;
 

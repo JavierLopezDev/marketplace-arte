@@ -18,6 +18,8 @@ public class Artista {
     @SequenceGenerator(name = "idArtista", sequenceName = "SEQ_ARTISTA", allocationSize = 1)
     @Id
     private int idArtista;
+
+    @Column(unique = true)
     private String usuario;
     private String password;
     private String nombreCompleto;
