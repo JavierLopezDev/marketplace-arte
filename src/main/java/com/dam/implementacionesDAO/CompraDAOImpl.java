@@ -71,4 +71,10 @@ public class CompraDAOImpl implements CompraDAO {
         em = emf.createEntityManager();
         return em.createQuery("SELECT c FROM Compra c WHERE c.compradorId = :idComprador").getResultList();
     }
+
+    @Override
+    public List<Compra> obtenerCompras() {
+        em = emf.createEntityManager();
+        return em.createQuery("SELECT c FROM Compra c").getResultList();
+    }
 }

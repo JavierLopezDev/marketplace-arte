@@ -11,4 +11,5 @@ public interface CompraDAO {
     public boolean borrarCompra(Compra compra);
     public Compra obtenerCompra(int idCompra);
     public List<Compra> obtenerCompras(int idComprador);
+    public List<Compra> obtenerCompras();
 }

@@ -9,6 +9,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class CompradorDAOImpl implements CompradorDAO {
 
@@ -97,5 +99,11 @@ public class CompradorDAOImpl implements CompradorDAO {
                 return false;
             }
         }
+    }
+
+    @Override
+    public List<Comprador> obtenerCompradores() {
+        em = emf.createEntityManager();
+        return em.createQuery("SELECT c FROM Comprador c").getResultList();
     }
 }

@@ -8,6 +8,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ArtistaDAOImpl implements ArtistaDAO {
 
@@ -97,5 +99,12 @@ public class ArtistaDAOImpl implements ArtistaDAO {
                 return false;
             }
         }
+    }
+
+    @Override
+    public List<Artista> obtenerArtistas() {
+        em = emf.createEntityManager();
+        String hql = "from Artista a";
+        return em.createQuery(hql, Artista.class).getResultList();
     }
 }

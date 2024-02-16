@@ -22,10 +22,14 @@ public class ControladorLogIn {
     Administrador admin;
     @Autowired
     AdministradorDAO adminDAO;
-    Artista artista = new Artista();
-    ArtistaDAO artistaDAO = new ArtistaDAOImpl();
-    Comprador comprador = new Comprador();
-    CompradorDAO compradorDAO = new CompradorDAOImpl();
+    @Autowired
+    Artista artista;
+    @Autowired
+    ArtistaDAO artistaDAO;
+    @Autowired
+    Comprador comprador;
+    @Autowired
+    CompradorDAO compradorDAO;
 
     @GetMapping("/loginAdmin")
     public String irLoginAdmin(Model model) {
