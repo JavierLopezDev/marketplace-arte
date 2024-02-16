@@ -8,6 +8,7 @@ public interface CompradorDAO {
     public boolean editarComprador(Comprador comprador);
     public boolean borrarComprador(Comprador comprador);
     public Comprador obtenerComprador(int idComprador);
+    public Comprador obtenerComprador(String usuario);
     public boolean editarSaldo(int idComprador, double saldo);
 
 }

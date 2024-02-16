@@ -68,6 +68,12 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     }
 
     @Override
+    public Artista obtenerArtista(String usuario) {
+        em = emf.createEntityManager();
+        return em.find(Artista.class, usuario);
+    }
+
+    @Override
     public boolean addBiografia(int idArtista, String biografia) {
         em = emf.createEntityManager();
         Artista artista = em.find(Artista.class, idArtista);

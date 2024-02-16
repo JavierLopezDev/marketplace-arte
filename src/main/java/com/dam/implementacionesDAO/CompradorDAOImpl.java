@@ -68,6 +68,12 @@ public class CompradorDAOImpl implements CompradorDAO {
     }
 
     @Override
+    public Comprador obtenerComprador(String usuario) {
+        em = emf.createEntityManager();
+        return em.find(Comprador.class, usuario);
+    }
+
+    @Override
     public boolean editarSaldo(int idComprador, double saldo) {
         em = emf.createEntityManager();
         Comprador comprador = obtenerComprador(idComprador);

@@ -8,4 +8,5 @@ public interface AdministradorDAO {
     public boolean editarAdministrador(Administrador administrador);
     public boolean borrarAdministrador(Administrador administrador);
     public Administrador obtenerAdministrador(int idAdministrador);
+    public Administrador obtenerAdministrador(String usuario);
 }

@@ -63,4 +63,10 @@ public class AdministradorDAOImpl implements AdministradorDAO {
         em = emf.createEntityManager();
         return em.find(Administrador.class, idAdministrador);
     }
+
+    @Override
+    public Administrador obtenerAdministrador(String usuario) {
+        em = emf.createEntityManager();
+        return em.find(Administrador.class, usuario);
+    }
 }
