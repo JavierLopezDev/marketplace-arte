@@ -67,13 +67,16 @@
 <body>
 <div class="container">
     <div class="form-container">
-        <h1>BIENVENIDO AL MEJOR MARKETPLACE DE NFTs</h1>
+        <h1>BIENVENIDO ${admin.usuario.toUpperCase()}</h1>
         <div class="button-container">
-            <form action="elegirUser">
-                <button type="submit">Login</button>
+            <form action="verArtistas">
+                <button type="submit">Artistas</button>
             </form>
-            <form action="rEscogerUsuario">
-                <button type="submit">SigIn</button>
+            <form action="verCompradores">
+                <button type="submit">Compradores</button>
+            </form>
+            <form action="verCompras">
+                <button type="submit">Compras</button>
             </form>
         </div>
     </div>

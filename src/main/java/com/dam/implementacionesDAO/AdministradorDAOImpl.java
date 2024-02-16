@@ -5,6 +5,7 @@ import com.dam.entidades.Administrador;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -67,6 +68,11 @@ public class AdministradorDAOImpl implements AdministradorDAO {
     @Override
     public Administrador obtenerAdministrador(String usuario) {
         em = emf.createEntityManager();
-        return em.find(Administrador.class, usuario);
+        String hql = "from Administrador a WHERE a.usuario = :usuario";
+        if (em.createQuery(hql, Administrador.class).setParameter("usuario", usuario).getResultList().isEmpty()) {
+            return null;
+        } else {
+            return em.createQuery(hql, Administrador.class).setParameter("usuario", usuario).getSingleResult();
+        }
     }
 }

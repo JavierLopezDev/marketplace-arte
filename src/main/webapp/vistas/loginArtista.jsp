@@ -13,7 +13,7 @@
     }
 </style>
 <body>
-<form:form class="form-horizontal" action="loginAdmin" method="post" modelAttribute="recibirLogin">
+<form:form class="form-horizontal" action="loginArtista" method="post" modelAttribute="recibirLogin">
     <fieldset>
 
         <!-- Form Name -->

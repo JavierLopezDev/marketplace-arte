@@ -1,6 +1,7 @@
 package com.dam.implementacionesDAO;
 
 import com.dam.DAOs.CompradorDAO;
+import com.dam.entidades.Artista;
 import com.dam.entidades.Comprador;
 import com.dam.entidades.Obra;
 import jakarta.persistence.EntityManager;
@@ -70,7 +71,12 @@ public class CompradorDAOImpl implements CompradorDAO {
     @Override
     public Comprador obtenerComprador(String usuario) {
         em = emf.createEntityManager();
-        return em.find(Comprador.class, usuario);
+        String hql = "from Comprador a WHERE a.usuario = :usuario";
+        if (em.createQuery(hql, Comprador.class).setParameter("usuario", usuario).getResultList().isEmpty()) {
+            return null;
+        } else {
+            return em.createQuery(hql, Comprador.class).setParameter("usuario", usuario).getSingleResult();
+        }
     }
 
     @Override

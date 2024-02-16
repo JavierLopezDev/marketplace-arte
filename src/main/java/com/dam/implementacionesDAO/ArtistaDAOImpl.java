@@ -1,6 +1,7 @@
 package com.dam.implementacionesDAO;
 
 import com.dam.DAOs.ArtistaDAO;
+import com.dam.entidades.Administrador;
 import com.dam.entidades.Artista;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -70,7 +71,12 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     @Override
     public Artista obtenerArtista(String usuario) {
         em = emf.createEntityManager();
-        return em.find(Artista.class, usuario);
+        String hql = "from Artista a WHERE a.usuario = :usuario";
+        if (em.createQuery(hql, Artista.class).setParameter("usuario", usuario).getResultList().isEmpty()) {
+            return null;
+        } else {
+            return em.createQuery(hql, Artista.class).setParameter("usuario", usuario).getSingleResult();
+        }
     }
 
     @Override
