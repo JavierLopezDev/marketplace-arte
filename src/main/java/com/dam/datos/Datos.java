@@ -14,10 +14,6 @@ public class Datos {
 
     public static void main(String[] args) throws IOException {
 
-        File file;
-        FileInputStream fis;
-        byte[] imagen = null;
-
         // ADMINISTRADOR
 
         AdministradorDAO administradorDAO = new AdministradorDAOImpl();
@@ -33,33 +29,21 @@ public class Datos {
         obra.setNombre("Best Friend #1");
         obra.setDisponibleVenta(true);
         obra.setPrecio(5);
-        file = new File("src/main/java/com/dam/imagenes/BestFriend#1.png");
-        fis = new FileInputStream(file);
-        imagen = new byte[(int) file.length()];
-        fis.read(imagen);
-        obra.setImagen(imagen);
+        obra.setImagen("https://i.seadn.io/s/raw/files/7dc1d39ce649b374676664643ec009d2.jpg?auto=format&dpr=1&w=256");
         obraDAO.insertarObra(obra);
 
         Obra obra2 = new Obra();
         obra2.setNombre("Best Friend #5");
         obra2.setDisponibleVenta(true);
         obra2.setPrecio(5);
-        file = new File("src/main/java/com/dam/imagenes/BestFriend#5.png");
-        fis = new FileInputStream(file);
-        fis.read(imagen);
-        imagen = new byte[(int) file.length()];
-        obra2.setImagen(imagen);
+        obra2.setImagen("https://i.seadn.io/s/raw/files/b117bdd24f4a8960d4503f901a598ac0.jpg?auto=format&dpr=1&w=256");
         obraDAO.insertarObra(obra2);
 
         Obra obra3 = new Obra();
         obra3.setNombre("Best Friend #48");
         obra3.setDisponibleVenta(true);
         obra3.setPrecio(5);
-        file = new File("src/main/java/com/dam/imagenes/BestFriend#48.png");
-        fis = new FileInputStream(file);
-        fis.read(imagen);
-        imagen = new byte[(int) file.length()];
-        obra3.setImagen(imagen);
+        obra3.setImagen("https://i.seadn.io/s/raw/files/f7eabc5bd5f1a1ee283a4fb373c6a57c.jpg?auto=format&dpr=1&w=256");
         obraDAO.insertarObra(obra3);
 
 
@@ -96,6 +80,7 @@ public class Datos {
         compra.setImporte(5);
         compra.setCompradorId(compradorDAO.obtenerComprador(comprador.getIdComprador()));
         compra.setObraId(obraDAO.obtenerObra(obra.getIdObra()));
+        obraDAO.disponibilidadObra(obra.getIdObra(), false);
         compraDAO.insertarCompra(compra);
 
         // ASOCIAR OBRAS CON ARTISTAS Y COMPRADORES

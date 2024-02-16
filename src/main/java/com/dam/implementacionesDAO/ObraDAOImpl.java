@@ -88,7 +88,7 @@ public class ObraDAOImpl implements ObraDAO {
     }
 
     @Override
-    public boolean addImagenObra(int idObra, byte[] imagen) {
+    public boolean addImagenObra(int idObra, String imagen) {
         em = emf.createEntityManager();
         Obra obra = obtenerObra(idObra);
         if (obra == null) {
@@ -160,9 +160,9 @@ public class ObraDAOImpl implements ObraDAO {
             try {
                 obra.setArtista(artista);
                 artista.getObras().add(obra);
-
                 em.getTransaction().begin();
                 em.merge(obra);
+                em.merge(artista);
                 em.getTransaction().commit();
                 return true;
             } catch (Exception e) {

@@ -20,8 +20,7 @@ public class Obra {
     private double precio;
     private boolean disponibleVenta;
     private String descripcion;
-    @Lob
-    private byte[] imagen;
+    private String imagen;
 
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -35,7 +34,7 @@ public class Obra {
 
     public Obra() {}
 
-    public Obra(String nombre, double precio, boolean disponibleVenta, String descripcion, byte[] imagen) {
+    public Obra(String nombre, double precio, boolean disponibleVenta, String descripcion, String imagen) {
         this.nombre = nombre;
         this.precio = precio;
         this.disponibleVenta = disponibleVenta;
@@ -43,7 +42,7 @@ public class Obra {
         this.imagen = imagen;
     }
 
-    public Obra(int idObra, String nombre, double precio, boolean disponibleVenta, String descripcion, byte[] imagen) {
+    public Obra(int idObra, String nombre, double precio, boolean disponibleVenta, String descripcion, String imagen) {
         this.idObra = idObra;
         this.nombre = nombre;
         this.precio = precio;
@@ -52,7 +51,7 @@ public class Obra {
         this.imagen = imagen;
     }
 
-    public Obra( String nombre, double precio, boolean disponibleVenta, String descripcion, byte[] imagen, Artista artista, Comprador comprador) {
+    public Obra( String nombre, double precio, boolean disponibleVenta, String descripcion, String imagen, Artista artista, Comprador comprador) {
         this.nombre = nombre;
         this.precio = precio;
         this.disponibleVenta = disponibleVenta;
@@ -62,7 +61,7 @@ public class Obra {
         this.comprador = comprador;
     }
 
-    public Obra(int idObra, String nombre, double precio, boolean disponibleVenta, String descripcion, byte[] imagen, Artista artista, Comprador comprador) {
+    public Obra(int idObra, String nombre, double precio, boolean disponibleVenta, String descripcion, String imagen, Artista artista, Comprador comprador) {
         this.idObra = idObra;
         this.nombre = nombre;
         this.precio = precio;
@@ -113,11 +112,11 @@ public class Obra {
         this.descripcion = descripcion;
     }
 
-    public byte[] getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(byte[] imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 
@@ -145,7 +144,7 @@ public class Obra {
                 " | Precio: "+ precio +
                 " | disponibleVenta: " + disponibleVenta +
                 " | descripcion: '" + descripcion +
-                " | imagen: " + Arrays.toString(imagen) //+
+                " | imagen: " + imagen //+
                 /*" | artista: " + artista.toString() +
                 " | comprador: " + comprador.toString()*/;
     }

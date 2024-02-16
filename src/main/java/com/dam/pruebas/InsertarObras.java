@@ -34,7 +34,7 @@ public class InsertarObras {
         FileInputStream fis;
         byte[] imagen;
 
-        obra.setNombre("Best Friend #1");
+        /*obra.setNombre("Best Friend #1");
         obra.setDisponibleVenta(true);
         obra.setPrecio(5);
         obra.setDescripcion("Best Friend #1 obra");
@@ -43,7 +43,7 @@ public class InsertarObras {
         imagen = new byte[(int) file.length()];
         fis.read(imagen);
         obra.setImagen(imagen);
-        obraDAO.insertarObra(obra);
+        obraDAO.insertarObra(obra);*/
 
         ((AnnotationConfigApplicationContext) appContext).close();
     }
