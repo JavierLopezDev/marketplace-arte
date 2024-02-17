@@ -72,6 +72,7 @@
         }
         .obra {
             width: 200px;
+            height: 500px;
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -117,7 +118,16 @@
                 <img class="artwork-image" src="${obra.getImagen()}" alt="Imagen Obra">
                 <p class="artwork-description">${obra.getDescripcion()}</p>
                 <p class="artwork-price">Precio: ${obra.getPrecio()}€</p>
-
+                <c:if test="${!obra.isDisponibleVenta()}">
+                    <p class="artwork-status">Comprador: ${obra.getComprador().getUsuario()}</p>
+                </c:if>
+                <c:if test="${obra.isDisponibleVenta()}">
+                    <p class="artwork-status">Disponible</p>
+                    <form action="modificarObra">
+                        <input type="hidden" name="idObra" value="${obra.getIdObra()}">
+                        <button type="submit" class="settings-button">Modificar</button>
+                    </form>
+                </c:if>
             </div>
         </c:forEach>
     </div>
