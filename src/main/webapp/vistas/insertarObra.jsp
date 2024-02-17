@@ -12,81 +12,59 @@
     }
 </style>
 <body>
-<form:form class="form-horizontal" action="insertarObra" method="post" modelAttribute="artistaObra">
+<form:form class="form-horizontal" action="insertarObra" method="post" modelAttribute="obra">
     <fieldset>
 
         <!-- Form Name -->
         <legend>Ajustes Artista</legend>
-        <form:hidden path="idArtista" value="${artista.getIdArtista()}"/>
+        <form:hidden path="idObra" value="${obra.idObra}"/>
+        <form:hidden path="disponibleVenta" value="true"/>
 
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="nomCompleto">Nombre: </label>
             <div class="col-md-4">
-                <form:input id="nomCompleto" path="nombreCompleto" type="text"
-                            placeholder="Nombre completo" class="form-control input-md" required=""
-                            value="${artista.nombreCompleto}"/>
+                <form:input id="nomCompleto" path="nombre" type="text"
+                            placeholder="" class="form-control input-md" required=""/>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="correo">Email:</label>
+            <label class="col-md-4 control-label" for="correo">Descripcion:</label>
             <div class="col-md-4">
-                <form:input id="correo" path="email" type="text"
-                            placeholder="" class="form-control input-md" required=""
-                            value="${artista.email} "/>
+                <form:input id="correo" path="descripcion" type="text"
+                            placeholder="" class="form-control input-md" required=""/>
 
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="date">Fecha Nacimiento</label>
+            <label class="col-md-4 control-label" for="date">Imagen: </label>
+            <div class="col-md-4">
+                <form:input id="date" path="imagen" type="text"
+                            class="form-control input-md" placeholder="URL de la Imagen"/>
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="pais">Precio: </label>
             <div class="col-md-2">
-                <form:input id="date" path="fechaNacimiento" type="text"
-                            class="form-control input-md"
-                            value="${artista.fechaNacimiento} "/>
+                <form:input id="pais" path="precio" type="number" step="0.01"
+                            placeholder="" class="form-control input-md"/>
 
             </div>
         </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="pais">Nacionalidad</label>
-            <div class="col-md-4">
-                <form:input id="pais" path="nacionalidad" type="text"
-                            placeholder="" class="form-control input-md"
-                            value="${artista.nacionalidad} "/>
-
-            </div>
-        </div>
-
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="descripcion">Biografia:</label>
-            <div class="col-md-4">
-                <form:textarea class="form-control" id="descripcion" path="biografia" rows="3"
-                               value="${artista.biografia} "/>
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="tlf">Telefono:</label>
-            <div class="col-md-4">
-                <form:input id="tlf" path="telefono" type="text"
-                            placeholder="Ej: 111223344" class="form-control input-md"
-                            value="${artista.telefono} "/>
-
-            </div>
-        </div>
 
         <!-- Button -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="send"></label>
             <div class="col-md-4">
-                <button id="send" name="send" class="btn btn-primary">Editar</button>
+                <button id="send" name="send" class="btn btn-primary">Insertar</button>
             </div>
         </div>
 

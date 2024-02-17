@@ -16,6 +16,7 @@ public class Obra {
     @SequenceGenerator(name = "idObra", sequenceName = "SEQ_OBRA", allocationSize = 1)
     @Id
     private int idObra;
+    @Column(unique = true)
     private String nombre;
     private double precio;
     private boolean disponibleVenta;

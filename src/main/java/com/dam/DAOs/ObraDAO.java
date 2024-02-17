@@ -14,6 +14,7 @@ public interface ObraDAO {
     public boolean addComprador(int idObra, int idComprador);
     public boolean addArtista(int idObra, int idArtista);
     public boolean addArtista(int idObra, String nomArtista);
+    public boolean addArtista(String nombreObra, String nomArtista);
 
     public boolean editarPrecioObra(int idObra, double precio);
     public boolean borrarComprador(int idObra);

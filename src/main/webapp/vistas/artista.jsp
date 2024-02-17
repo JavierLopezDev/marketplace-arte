@@ -71,7 +71,7 @@
             cursor: pointer;
         }
         .obra {
-            width: max-content;
+            width: 200px;
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -106,7 +106,7 @@
     </div>
 
     <form action="insertarObra" class="addObra">
-        <input type="hidden" name="idArtista" value="${artista.getIdArtista()}">
+        <input type="hidden" name="user" value="${artista.getUsuario()}">
         <button type="submit" class="settings-button" >Añadir Obra</button>
     </form>
 

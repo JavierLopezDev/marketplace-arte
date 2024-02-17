@@ -1,17 +1,11 @@
 package com.dam.controladores;
 
-import com.dam.DAOs.AdministradorDAO;
-import com.dam.DAOs.ArtistaDAO;
-import com.dam.DAOs.CompraDAO;
-import com.dam.DAOs.CompradorDAO;
+import com.dam.DAOs.*;
 import com.dam.entidades.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 
@@ -33,6 +27,10 @@ public class ControladorArtista {
     Compra compra;
     @Autowired
     CompraDAO compraDAO;
+    @Autowired
+    ObraDAO obraDAO;
+    @Autowired
+    Obra obra;
 
     @GetMapping("/ajustesArtista")
     public String ajustesArtista(@RequestParam("idArtista") int idArtista, Model model) {
@@ -49,17 +47,18 @@ public class ControladorArtista {
         return "artista";
     }
 
-    @GetMapping("/addObra")
-    public String addObra(@RequestParam("idArtista") int idArtista, Model model) {
-        Obra obra = new Obra();
+    @GetMapping("/insertarObra")
+    public String procesarObra(@RequestParam("user") String user, @ModelAttribute("obra") Obra obra, Model model) {
+        Artista artistap = artistaDAO.obtenerArtista(user);
         model.addAttribute("obra", obra);
         return "insertarObra";
     }
 
-    @PostMapping("/ajustesArtista")
-    public String procesarObra(@ModelAttribute("artista") Artista artista, Model model) {
-        artistaDAO.editarArtista(artista);
-        Artista artistap = artistaDAO.obtenerArtista(artista.getIdArtista());
+    @PostMapping("/insertarObra")
+    public String insertarObra(@ModelAttribute("obra") Obra obra, Model model) {
+        obraDAO.editarObra(obra);
+        obraDAO.addArtista(obra.getNombre(), "artista1");
+        Artista artistap = artistaDAO.obtenerArtista("artista1");
         model.addAttribute("artista", artistap);
         return "artista";
     }

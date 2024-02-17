@@ -196,6 +196,31 @@ public class ObraDAOImpl implements ObraDAO {
     }
 
     @Override
+    public boolean addArtista(String nombreObra, String nomArtista) {
+        em = emf.createEntityManager();
+        String hql = "SELECT a FROM Artista a WHERE a.usuario = :nomArtista";
+        Artista artista = em.createQuery(hql, Artista.class).setParameter("nomArtista", nomArtista).getSingleResult();
+        String hql2 = "SELECT o FROM Obra o WHERE o.nombre = :nombreObra";
+        Obra obra = em.createQuery(hql2, Obra.class).setParameter("nombreObra", nombreObra).getSingleResult();
+        if (obra == null && artista == null) {
+            return false;
+        } else {
+            try {
+                em.getTransaction().begin();
+                obra.setArtista(artista);
+                artista.getObras().add(obra);
+                em.merge(obra);
+                em.merge(artista);
+                em.getTransaction().commit();
+                return true;
+            } catch (Exception e) {
+                em.getTransaction().rollback();
+                return false;
+            }
+        }
+    }
+
+    @Override
     public boolean editarPrecioObra(int idObra, double precio) {
         em = emf.createEntityManager();
         Obra obra = obtenerObra(idObra);
