@@ -48,14 +48,29 @@ public class ControladorArtista {
     }
 
     @GetMapping("/insertarObra")
-    public String procesarObra(@RequestParam("user") String user, @ModelAttribute("obra") Obra obra, Model model) {
-        Artista artistap = artistaDAO.obtenerArtista(user);
+    public String procesarObra(@ModelAttribute("obra") Obra obra, Model model) {
         model.addAttribute("obra", obra);
         return "insertarObra";
     }
 
     @PostMapping("/insertarObra")
     public String insertarObra(@ModelAttribute("obra") Obra obra, Model model) {
+        obraDAO.editarObra(obra);
+        obraDAO.addArtista(obra.getNombre(), "artista1");
+        Artista artistap = artistaDAO.obtenerArtista("artista1");
+        model.addAttribute("artista", artistap);
+        return "artista";
+    }
+
+    @GetMapping("/modificarObra")
+    public String modificarObra(@RequestParam("idObra") int idObra, Model model) {
+        obra = obraDAO.obtenerObra(idObra);
+        model.addAttribute("obra", obra);
+        return "modificarObra";
+    }
+
+    @PostMapping("/modificarObra")
+    public String modificarObra(@ModelAttribute("obra") Obra obra, Model model) {
         obraDAO.editarObra(obra);
         obraDAO.addArtista(obra.getNombre(), "artista1");
         Artista artistap = artistaDAO.obtenerArtista("artista1");

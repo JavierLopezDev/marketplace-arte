@@ -9,6 +9,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ObraDAOImpl implements ObraDAO {
 
@@ -219,6 +221,31 @@ public class ObraDAOImpl implements ObraDAO {
             }
         }
     }
+    @Override
+    public boolean addComprador(String nombreObra, String nomComprador) {
+        em = emf.createEntityManager();
+        String hql = "SELECT a FROM Comprador a WHERE a.usuario = :nomComprador";
+        Comprador comprador = em.createQuery(hql, Comprador.class).setParameter("nomComprador", nomComprador).getSingleResult();
+        String hql2 = "SELECT o FROM Obra o WHERE o.nombre = :nombreObra";
+        Obra obra = em.createQuery(hql2, Obra.class).setParameter("nombreObra", nombreObra).getSingleResult();
+        if (obra == null && comprador == null) {
+            return false;
+        } else {
+            try {
+                em.getTransaction().begin();
+                obra.setComprador(comprador);
+                obra.setDisponibleVenta(false);
+                comprador.getInventario().add(obra);
+                em.merge(obra);
+                em.merge(comprador);
+                em.getTransaction().commit();
+                return true;
+            } catch (Exception e) {
+                em.getTransaction().rollback();
+                return false;
+            }
+        }
+    }
 
     @Override
     public boolean editarPrecioObra(int idObra, double precio) {
@@ -261,5 +288,12 @@ public class ObraDAOImpl implements ObraDAO {
                 return false;
             }
         }
+    }
+
+    @Override
+    public List<Obra> obtenerObrasEnVenta() {
+        em = emf.createEntityManager();
+        String hql = "SELECT o FROM Obra o WHERE o.disponibleVenta = true";
+        return em.createQuery(hql, Obra.class).getResultList();
     }
 }

@@ -107,7 +107,6 @@
     </div>
 
     <form action="insertarObra" class="addObra">
-        <input type="hidden" name="user" value="${artista.getUsuario()}">
         <button type="submit" class="settings-button" >Añadir Obra</button>
     </form>
 
