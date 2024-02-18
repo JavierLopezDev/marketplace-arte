@@ -30,18 +30,17 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${artista}" var="comprador">
+    <c:forEach items="${artista}" var="artista">
         <tr>
-            <td>${comprador.nombreCompleto}</td>
-            <td>${comprador.usuario}</td>
-            <td>${comprador.email}</td>
-            <td>${comprador.fechaNacimiento}</td>
-            <td>${comprador.nacionalidad}</td>
-            <td>${comprador.biografia}</td>
-            <td>${comprador.telefono}</td>
-            <td>${comprador.obras.size()}</td>
-            <td><a class="btn btn-primary" role="button" href="editar/${comprador.idArtista}">Editar</a></td>
-            <td><a class="btn btn-primary" role="button" href="eliminar/${comprador.idArtista}">Eliminar</a></td>
+            <td>${artista.nombreCompleto}</td>
+            <td>${artista.usuario}</td>
+            <td>${artista.email}</td>
+            <td>${artista.fechaNacimiento}</td>
+            <td>${artista.nacionalidad}</td>
+            <td>${artista.biografia}</td>
+            <td>${artista.telefono}</td>
+            <td>${artista.obras.size()}</td>
+            <td><a class="btn btn-primary" role="button" href="editarArtista/${artista.idArtista}">Editar</a></td>
         </tr>
     </c:forEach>
     </tbody>

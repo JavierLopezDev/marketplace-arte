@@ -17,27 +17,13 @@
 
 <table class="table table-striped">
     <thead>
-    <%--
-    @Id
-    private int idComprador;
-
-    @Column(unique = true)
-    private String usuario;
-    private String password;
-    private String nombreCompleto;
-    private String email;
-    private double saldo;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "comprador")
-    private List<Obra> inventario = new ArrayList<>();
-    --%>
     <tr>
         <th>Nombre</th>
         <th>Usuario</th>
         <th>Email</th>
         <th>Saldo</th>
         <th>Inventario</th>
-        <th colspan="2">Operaciones</th>
+        <th>Operaciones</th>
     </tr>
     </thead>
     <tbody>
@@ -48,8 +34,7 @@
             <td>${comprador.email}</td>
             <td>${comprador.saldo}</td>
             <td>${comprador.inventario.size()}</td>
-            <td><a class="btn btn-primary" role="button" href="editar/${comprador.idComprador}">Editar</a></td>
-            <td><a class="btn btn-primary" role="button" href="eliminar/${comprador.idComprador}">Eliminar</a></td>
+            <td><a class="btn btn-primary" role="button" href="editarCompradores/${comprador.idComprador}">Editar</a></td>
         </tr>
     </c:forEach>
     </tbody>

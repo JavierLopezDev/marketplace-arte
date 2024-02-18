@@ -33,18 +33,15 @@
         <th>Obra</th>
         <th>Fecha</th>
         <th>Importe</th>
-        <th colspan="2">Operaciones</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${compras}" var="comprador">
+    <c:forEach items="${compras}" var="compra">
         <tr>
-            <td>${comprador.compradorId.getNombreCompleto()}</td>
-            <td>${comprador.obraId.getNombre()}</td>
-            <td>${comprador.fecha}</td>
-            <td>${comprador.importe}</td>
-            <td><a class="btn btn-primary" role="button" href="editar/${comprador.idCompra}">Editar</a></td>
-            <td><a class="btn btn-primary" role="button" href="eliminar/${comprador.idCompra}">Eliminar</a></td>
+            <td>${compra.compradorId.getNombreCompleto()}</td>
+            <td>${compra.obraId.getNombre()}</td>
+            <td>${compra.fecha}</td>
+            <td>${compra.importe}</td>
         </tr>
     </c:forEach>
     </tbody>

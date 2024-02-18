@@ -11,7 +11,7 @@ import com.dam.entidades.Comprador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,16 +42,46 @@ public class ControladorAdmin {
         return "verArtistas";
     }
 
+    @GetMapping("/editarArtista/{idArtista}")
+    public String editarArtista(@PathVariable("idArtista") int idArtista, Model model) {
+        artista = artistaDAO.obtenerArtista(idArtista);
+        model.addAttribute("artista", artista);
+        return "editarArtista";
+    }
+
+    @PostMapping("/editarArtista")
+    public String editarArtista(@ModelAttribute("artista") Artista artista, Model model) {
+        artistaDAO.editarArtista(artista);
+        List<Artista> listaArtistas = artistaDAO.obtenerArtistas();
+        model.addAttribute("artista", listaArtistas);
+        return "verArtistas";
+    }
+
     @GetMapping("/verCompras")
     public String verCompras(Model model) {
         List<Compra> listaCompras = compraDAO.obtenerCompras();
         model.addAttribute("compras", listaCompras);
         return "verCompras";
     }
+
     @GetMapping("/verCompradores")
     public String verCompradores(Model model) {
         List<Comprador> listaCompradores = compradorDAO.obtenerCompradores();
         model.addAttribute("compradores", listaCompradores);
+        return "verCompradores";
+    }
+    @GetMapping("/editarCompradores/{idComprador}")
+    public String editarCompradores(@PathVariable("idComprador") int idComprador, Model model) {
+        comprador = compradorDAO.obtenerComprador(idComprador);
+        model.addAttribute("comprador", comprador);
+        return "editarComprador";
+    }
+
+    @PostMapping("/editarCompradores")
+    public String editarCompradores(@ModelAttribute("comprador") Comprador comprador, Model model) {
+        compradorDAO.editarComprador(comprador);
+        List<Comprador> listaCompradoress = compradorDAO.obtenerCompradores();
+        model.addAttribute("compradores", listaCompradoress);
         return "verCompradores";
     }
 }
